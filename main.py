@@ -1,4 +1,4 @@
-from funcoes import menu, cadastrar, listar, buscar, emprestar, devolver
+from services.funcoes import menu, cadastrar, listar, buscar, emprestar, devolver
 import time
 
 while True:

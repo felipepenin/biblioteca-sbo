@@ -1,4 +1,4 @@
-from classe import Livro
+from models.classe import Livro
 
 livros = []
 
