@@ -68,7 +68,7 @@ def listar():
     for i, livro in enumerate(livros, start=1):
         status = 'Disponivel' if livro.disponivel else 'Emprestado'
 
-        print(f'\n{i + 1} - Titulo: {livro.titulo}')
+        print(f'\n{i} - Titulo: {livro.titulo}')
         print(f'\nAutor: {livro.autor}')
         print(f'Status: {status}')
 
@@ -105,3 +105,16 @@ def devolver():
             return
 
     print('Livro não encontrado.')
+
+def cont_disponiveis():
+    disponivel = 0
+    emprestado = 0
+
+    for livro in livros:
+        if livro.disponivel:
+            disponivel += 1
+        else:
+            emprestado += 1
+
+    print(f'\nExistem {disponivel} livros disponíveis na biblioteca.')
+    print(f'\nExistem {emprestado} livros emprestados na biblioteca.')
