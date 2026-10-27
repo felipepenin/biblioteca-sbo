@@ -1,8 +1,7 @@
-from services.funcoes import menu, cadastrar, listar, buscar, emprestar, devolver
+from services.funcoes import menu, cadastrar, listar, buscar, emprestar, devolver, cont_disponiveis
 import time
 
 while True:
-
     opcao = menu()
 
     if opcao == 1:
@@ -20,7 +19,10 @@ while True:
     elif opcao == 5:
         devolver()
 
-    elif opcao == 6:
+    elif opcao == 6: 
+        cont_disponiveis()
+
+    elif opcao == 7:
         print('Encerrando...')
         time.sleep(2)
         print('Encerrado. Obrigado por usar nossa Biblioteca, volte sempre!')

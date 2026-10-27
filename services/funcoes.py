@@ -11,13 +11,14 @@ def menu():
     print('3 - Buscar Livro')
     print('4 - Emprestar Livro')
     print('5 - Devolver Livro')
-    print('6 - Sair')
+    print('6 - Disponiveis')
+    print('7 - Sair')
 
     while True:
         try:
             opcao = int(input('\nDigite a opção: '))
 
-            if opcao not in (1, 2, 3, 4, 5, 6):
+            if opcao not in (1, 2, 3, 4, 5, 6, 7):
                 print('ERRO: Digite uma opção válida.')
                 continue
             break
@@ -69,17 +70,21 @@ def listar():
         status = 'Disponivel' if livro.disponivel else 'Emprestado'
 
         print(f'\n{i} - Titulo: {livro.titulo}')
-        print(f'\nAutor: {livro.autor}')
+        print(f'Autor: {livro.autor}')
         print(f'Status: {status}')
 
 def buscar():
-    nome = input('Digite o titulo do livro que deseja buscar: ').strip().lower()
+    nome = input('\nDigite o titulo do livro que deseja buscar: ').strip().lower()
     encontrou = False
 
     for livro in livros:
+        status = 'Disponivel' if livro.disponivel else 'Emprestado'
+        
         if nome == livro.titulo.lower():
-            print(f'Encontrado! {livro.titulo}')
-            print(f'\n{livro.autor}')
+            print('\nEncontrado!')
+            print(f'\nTítulo: {livro.titulo}')
+            print(f'Autor: {livro.autor}')
+            print(f'Status: {status}')
             encontrou = True
             return
 
@@ -87,24 +92,24 @@ def buscar():
         print('Livro não encontrado!')
 
 def emprestar():
-    nome = input('Qual livro deseja emprestar? ').strip().lower()
+    nome = input('\nQual livro deseja emprestar? ').strip().lower()
 
     for livro in livros:
         if nome == livro.titulo.lower():
             livro.emprestar()
             return
 
-    print('Livro não encontrado.')
+    print('\nLivro não encontrado.')
 
 def devolver():
-    nome = input('Qual livro deseja devolver? ').strip().lower()
+    nome = input('\nQual livro deseja devolver? ').strip().lower()
 
     for livro in livros:
         if nome == livro.titulo.lower():
             livro.devolver()
             return
 
-    print('Livro não encontrado.')
+    print('\nLivro não encontrado.')
 
 def cont_disponiveis():
     disponivel = 0
@@ -117,4 +122,4 @@ def cont_disponiveis():
             emprestado += 1
 
     print(f'\nExistem {disponivel} livros disponíveis na biblioteca.')
-    print(f'\nExistem {emprestado} livros emprestados na biblioteca.')
+    print(f'Existem {emprestado} livros emprestados na biblioteca.')
